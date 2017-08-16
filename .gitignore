@@ -72,6 +72,3 @@ target/
 pyvenv.cfg
 .venv
 pip-selfcheck.json
-
-#nodemodules
-*node_modules/
