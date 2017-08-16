@@ -1,0 +1,31 @@
+<a class="btn btn-default pull-right btn-primary" ui-sref="surveys.new" role="button" ng-if="isAuthenticated()">New</a>
+
+<table datatable="ng" dt-options="dtOptions" class="table table-bordered" ng-if="isAuthenticated()">
+
+
+       <thead>
+         <th>ID</th>
+
+                         <th>Title</th>
+                         <th>Description</th>
+                         <th>Active</th>
+
+          <th>Actions</th>
+
+
+        </thead>
+        <tbody>
+        <tr ng-repeat=" survey in surveys">
+            <td>{{ survey.id  }}</td>
+
+                         <td>{{ survey.title }}</td>
+                         <td>{{ survey.description }}</td>
+                         <td>{{ survey.active }}</td>
+
+            <td><a ui-sref="surveys.edit({id:survey.id })" class="btn btn-default btn-warning" role="button"  id="editButton"><i class="fa fa-edit"></i></a>
+            <button class="btn btn-default btn-danger" ng-click="deleteSurvey(survey.id)" id="deleteButton"><i class="fa fa-trash-o"></i></button>
+            </td>
+        </tr>
+        </tbody>
+
+</table>

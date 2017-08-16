@@ -1,0 +1,25 @@
+<a class="btn btn-default pull-right btn-primary" ui-sref="questions.new" role="button" ng-if="isAuthenticated()">New</a>
+
+<table datatable="ng" dt-options="dtOptions" class="table table-bordered" ng-if="isAuthenticated()">
+
+
+       <thead>
+         <th>ID</th>
+         
+                         <th>Name</th>
+          <th>Actions</th>
+
+
+        </thead>
+        <tbody>
+        <tr ng-repeat=" question in questions">
+            <td>{{ question.id  }}</td> 
+            
+                         <td>{{ question.name }}</td>
+            <td><a ui-sref="questions.edit({id:question.id })" class="btn btn-default btn-warning" role="button"  id="editButton"><i class="fa fa-edit"></i></a>
+            <button class="btn btn-default btn-danger" ng-click="deleteQuestion(question.id)" id="deleteButton"><i class="fa fa-trash-o"></i></button>
+            </td>
+        </tr>
+        </tbody>
+
+</table>

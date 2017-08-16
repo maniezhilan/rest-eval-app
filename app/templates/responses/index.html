@@ -1,0 +1,31 @@
+<a class="btn btn-default pull-right btn-primary" ui-sref="responses.new" role="button" ng-if="isAuthenticated()">New</a>
+
+<table datatable="ng" dt-options="dtOptions" class="table table-bordered" ng-if="isAuthenticated()">
+
+
+       <thead>
+         <th>ID</th>
+         
+                         <th>User</th>
+                         <th>Answer</th>
+                         <th>Question</th>
+                         <th>Modification_Time</th>
+          <th>Actions</th>
+
+
+        </thead>
+        <tbody>
+        <tr ng-repeat=" response in responses">
+            <td>{{ response.id  }}</td> 
+            
+                         <td>{{ response.user }}</td>
+                         <td>{{ response.answer }}</td>
+                         <td>{{ response.question }}</td>
+                         <td>{{ response.modification_time }}</td>
+            <td><a ui-sref="responses.edit({id:response.id })" class="btn btn-default btn-warning" role="button"  id="editButton"><i class="fa fa-edit"></i></a>
+            <button class="btn btn-default btn-danger" ng-click="deleteResponse(response.id)" id="deleteButton"><i class="fa fa-trash-o"></i></button>
+            </td>
+        </tr>
+        </tbody>
+
+</table>

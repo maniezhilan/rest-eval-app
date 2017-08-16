@@ -1,0 +1,55 @@
+
+
+
+      
+				 
+        <div class="form-group">
+            <label for="name" class="col-sm-2 control-label"> User</label>
+            <div class="col-sm-4">
+                 <input   type="text" id="user" name="user"  class="form-control"
+                  ng-model="response.data.attributes.user" placeholder="user*" required>
+            </div>
+         </div>
+        <div class="form-group">
+            <label for="name" class="col-sm-2 control-label"> Answer</label>
+            <div class="col-sm-4">
+                 <input   type="text" id="answer" name="answer"  class="form-control"
+                  ng-model="response.data.attributes.answer" placeholder="answer*" required>
+            </div>
+         </div>
+        <div class="form-group">
+            <label for="name" class="col-sm-2 control-label"> Question</label>
+            <div class="col-sm-4">
+                 <input   type="text" id="question" name="question"  class="form-control"
+                  ng-model="response.data.attributes.question" placeholder="question*" required>
+            </div>
+         </div>
+        <div class="form-group">
+            <label for="name" class="col-sm-2 control-label"> Modification_Time</label>
+            <div class="col-sm-4">
+                 <input   type="datetime" id="modification_time" name="modification_time"  class="form-control"
+                  ng-model="response.data.attributes.modification_time" placeholder="modification_time*" required>
+            </div>
+         </div>
+                     
+       
+    <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">  
+            <button  ng-disabled="loading" class="btn btn-primary " type="submit" >
+
+                              <span ng-hide="loading">Save</span>
+                              <span ng-show="loading">Loading....</span></button>
+
+      </div>
+   </div>
+    
+              
+
+         
+              
+              
+              
+
+  
+
+				
