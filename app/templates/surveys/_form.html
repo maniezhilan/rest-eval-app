@@ -25,8 +25,24 @@
 
             </div> -->
             <div ng-repeat="question in survey.data.attributes.questions.data">
-	            <div ng-repeat="attribute in question.attributes">
-					{{ attribute }}
+	            <div ng-repeat="attribute in question">
+					{{ attribute.name }}
+					<div ng-repeat="response in attribute.responses">
+						<div ng-repeat="attribute in response">
+
+
+
+				                <div class="col-sm-4">
+                <label class="radio-inline">
+                <input type="radio" name="active" id="active" ng-value="1" ng-model="attribute.attributes.answer">
+                True</label>
+                <label class="radio-inline">
+                <input type="radio" name="active" id="active" ng-value="0" ng-model="attribute.attributes.answer">
+                False</label>
+            </div>
+
+						</div>
+					</div>
 	            </div>
             </div>
 
