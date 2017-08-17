@@ -1,7 +1,7 @@
 from marshmallow_jsonapi import Schema, fields
 from marshmallow import validate
 from app.basemodels import db, CRUD_MixIn
-
+from app.responses.models import Responses, ResponsesSchema
 
 class Questions(db.Model, CRUD_MixIn):
     id = db.Column(db.Integer, primary_key=True)
@@ -12,6 +12,9 @@ class Questions(db.Model, CRUD_MixIn):
     creation_time = db.Column(db.TIMESTAMP, server_default=db.func.current_timestamp())
     updated = db.Column(db.DateTime, default=db.func.current_timestamp(),
                             onupdate=db.func.current_timestamp())
+    # Relationships
+    responses = db.relationship('Responses', backref='questions',
+                                lazy='dynamic')
 
     def __init__(self,  name, ):
 
@@ -25,6 +28,7 @@ class QuestionsSchema(Schema):
     id = fields.Integer(dump_only=True)
 
     name = fields.String(validate=not_blank)
+    responses = fields.Nested(ResponsesSchema, many=True)
 
     # self links
     def get_top_level_links(self, data, many):
